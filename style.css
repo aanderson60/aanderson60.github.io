@@ -64,8 +64,6 @@ h2 {
 p {
 	color: black;
 	font-size: 18px;
-	margin-right: 150px;
-	margin-left: 150px;
 	text-align: center;
 }
 
@@ -115,4 +113,66 @@ p {
 	font-size: 24px;
 	text-decoration: none;
 	text-align: center;
+}
+
+/* Resume formatting */
+.resume_format {
+	margin-left: 300px;
+	margin-right: 300px;
+	padding: 10px;
+}
+
+.resume_format h1 {
+	color: black;
+	font-size: 36px;
+	text-align: left;
+}
+
+.resume_format h2 {
+	color: rgb(74,74,74);
+	font-size: 22px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.resume_format h3 {
+	color: black;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: left;
+	margin-top: 0px;
+	margin-bottom: 7px;
+}
+
+.resume_format p {
+	color: rgb(74,74,74);
+	font-size: 16px;
+	text-align: left;
+}
+
+.resume_format ul {
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+.resume_format ul,li,ul {
+	margin-bottom: 1px;
+}
+
+.resume_format li {
+	color: rgb(74,74,74);
+	font-size: 16px;
+	padding: 1px;
+}
+
+#italic_p {
+	font-style: italic;
+}
+
+.rl_heading h3{
+	white-space: nowrap;
+	display: inline-block;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-block-end: 0px;
 }
