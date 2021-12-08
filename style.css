@@ -1,6 +1,20 @@
+html {
+	height: 100%;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
 	background-color: #dadfe8;
 	font-family: "Helvetica", Arial, sans-serif;
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 6rem;
 }
 /* Fade in animation */
 @keyframes fadeIn {
@@ -10,6 +24,7 @@ body {
 		opacity: 1;
 	}
 }
+
 .fade-in {
 	animation: fadeIn ease 1s;
 }
@@ -20,16 +35,19 @@ h1 {
 	font-size: 36px;
 	text-align: center;
 }
+
 h2 {
 	color: black;
 	text-align: center;
 	font-weight: normal;
 }
+
 #inline_link {
 	text-decoration: underline;
 	font-style: italic;
 	color: black;
 }
+
 #counter {
 	color: gray;
 	font-size: 23px;
@@ -37,10 +55,12 @@ h2 {
 	font-style: italic;
 	padding: 10px;
 }
+
 #interests {
 	margin: 0 auto;
 	width: 30%;
 }
+
 p {
 	color: black;
 	font-size: 18px;
@@ -50,19 +70,23 @@ p {
 }
 
 /* Footer Stuff */
-.footer {
-	width: 100%;
-	height: 28px;
-	position: absolute;
-	bottom: 0px; 
-	left: 0px; 
-	text-align: center;
-	margin-bottom: 20px;
+.content {
+	flex: 1 1 auto;
 }
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
 .footer p {
 	font-size: 11px;
 	font-style: italic;
 }
+
 .footer a {
 	text-decoration: none;
 	font-size: 11px;
@@ -78,10 +102,12 @@ p {
 	display: table;
 	margin: 0 auto;
 }
+
 .header li {
 	display: inline;
 	float: left;
 }
+
 .header a {
 	display: block;
 	color: #42454a;
