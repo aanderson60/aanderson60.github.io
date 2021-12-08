@@ -1,4 +1,4 @@
-var gradDate = new Date("May 8, 2023 09:00:00").getTime();
+var gradDate = new Date("May 8, 2023 09:00:00 CST").getTime();
 
 var x = setInterval(function() {
     var currDate = new Date().getTime();
