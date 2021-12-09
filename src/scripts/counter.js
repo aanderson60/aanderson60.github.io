@@ -8,9 +8,12 @@ var x = setInterval(function() {
     var minutes = Math.floor(timeLeft % (1000*60*60) / (1000*60));
     var seconds = Math.floor(timeLeft % (1000*60) / 1000);
     var milisec = Math.floor(timeLeft % 1000);
-    var formatMs = milisec.toString().padEnd(3,'0');
+    //var formatMs = milisec.toString().padEnd(3,'0');
+    var roundedS = seconds + milisec/1000;
+    roundedS = roundedS.toFixed(1);
+    var formatMs = roundedS.toString();
 
-    var formattedStr = days + ((days==1) ? " day, " : " days, ") + hours + ((hours==1) ? " hour, " : " hours, ") + minutes + ((minutes==1) ? " minute, " : " minutes, and ") + seconds + "." + formatMs + " seconds.";
+    var formattedStr = days + ((days==1) ? " day, " : " days, ") + hours + ((hours==1) ? " hour, " : " hours, ") + minutes + ((minutes==1) ? " minute, " : " minutes, and ") + formatMs + " seconds.";
     document.getElementById('counter').innerHTML = formattedStr;
     return false;
-},10);
+},100);
