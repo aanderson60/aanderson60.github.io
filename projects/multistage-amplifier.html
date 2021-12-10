@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel='shortcut icon' type='image/ico' href='../src/favicon.ico' />
+		<link rel="stylesheet" href="../style.css">
+		<title>Projects - Multistage Amplifier</title>
+	</head>
+	<body>
+		<div class="fade-in">
+			<div class="header">
+			<ul>
+				<li><a href="../index.html">Home</a></li>
+				<li><a href="../projects.html" style="font-weight: bold;">Projects</a></li>
+				<li><a href="../resume.html">Resume</a></li>
+				<li><a href="../contact.html">Contact</a></li>
+			</ul>
+			<div class="project_body">
+				<h1>Multistage Amplifier</h1>
+				<p>For the final project in my <i>Electronics</i> course, we were tasked with designing a multistage amplifier that could meet various specifications, 
+				and, eventually, amplify audio from our computers.  The load that had to be driven was quite small, around 8 Ohms.  Our goal was to provide 30dB of gain
+				with low distortion on the output.  My team opted to go for a 2-stage approach, with a gain stage and a buffer stage.</p>
+				<p>We started the design by using two BJT configurations, the common-emitter for the gain stage, and the common-base for the buffer stage.
+					With this approach however, we found it quite difficult to obtain desirable results, mainly because of difficulties matching the impedances of the
+					two stages with BJTs.  Both stages worked quite well on their own, but when combined did not.
+				</p>
+				<p>To overcome this challenge, we shifted our design approach to use a NMOS based common-drain configuration for the buffer stage.  Doing this allowed
+					much simpler impedance matching and enabled us to design this stage with the output impedance of the first stage in mind.  After making this change,
+					we were able to complete the project and meet the design specifications given.
+				</p>
+				<p>For more information on the design process and calculations, you can download our report <a id="inline_link" href="img/Final Report.pdf">here</a></p>
+				<figure>
+					<img src="img/ampdesign.png" alt="2-Stage Amplifier Schematic">
+					<figcaption>The completed schematic of the amplifier</figcaption>
+				</figure>
+				<figure>
+					<img src="img/demo.PNG" alt="Demoing the project">
+					<figcaption>Demoing the project by playing music through the amplifier</figcaption>
+				</figure>
+				<br>
+				<a id="return_link" href="../projects.html">Back to Projects Page</a>
+				</div>
+			</div>
+			<div class="footer">
+				<p>2021 Alex Anderson<br>
+					<a href="../index.html">Home</a>
+					<a href="../projects.html">Projects</a>
+					<a href="../resume.html">Resume</a>
+					<a href="../contact.html">Contact</a>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
