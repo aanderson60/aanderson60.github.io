@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Lato&display=swap');
+
 html {
 	height: 100%;
 	box-sizing: border-box;
@@ -11,7 +13,7 @@ html {
 
 body {
 	background-color: #dadfe8;
-	font-family: "Helvetica", Arial, sans-serif;
+	font-family: "Lato", sans-serif;
 	position: relative;
 	min-height: 100%;
 	padding-bottom: 6rem;
@@ -44,15 +46,18 @@ h2 {
 
 #inline_link {
 	text-decoration: underline;
-	font-style: italic;
 	color: black;
 }
 
+#inline_link:hover {
+	font-style: italic;
+}
+
 #counter {
+	font-family: "Inconsolata", monospace;
 	color: gray;
 	font-size: 23px;
 	text-align: center;
-	font-style: italic;
 	padding: 10px;
 }
 
@@ -112,16 +117,20 @@ p {
 }
 
 .footer p {
-	font-size: 11px;
+	font-size: 12px;
 	font-style: italic;
 }
 
 .footer a {
 	text-decoration: none;
-	font-size: 11px;
+	font-size: 12px;
 	font-style: italic;
 	color: black;
 	padding: 4px;
+}
+
+.footer a:hover {
+	text-decoration: underline;
 }
 
 /* Header Stuff */
@@ -137,6 +146,16 @@ p {
 	float: left;
 }
 
+#current_link {
+	display: block;
+	color: #42454a;
+	padding: 38px;
+	font-size: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+}
+
 .header a {
 	display: block;
 	color: #42454a;
@@ -144,6 +163,31 @@ p {
 	font-size: 24px;
 	text-decoration: none;
 	text-align: center;
+	padding-bottom: 5px;
+}
+
+/* Animation for header links */
+
+.header a.link_animation {
+	position: relative;
+}
+
+.header a.link_animation::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #42454a;
+	visibility: hidden;
+	transform: scaleX(0);
+	transition: all 0.3s ease-in-out;
+}
+
+.header a.link_animation:hover::before {
+	visibility: visible;
+	transform: scaleX(0.6);
 }
 
 /* Resume formatting */
@@ -258,6 +302,7 @@ p {
 #return_link {
 	font-size: 24px;
 	font-weight: bold;
+	color: black;
 	text-decoration: underline;
 }
 
@@ -274,5 +319,5 @@ p {
 }
 
 .project_entry hr {
-	width: 80%;
+	width: 65%;
 }
