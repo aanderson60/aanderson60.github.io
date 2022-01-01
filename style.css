@@ -243,6 +243,12 @@ p {
 	padding: 1px;
 }
 
+.resume_format a {
+	font-style: normal;
+	color: rgb(74,74,74);
+	text-decoration: none;
+}
+
 #italic_p {
 	font-style: italic;
 }
