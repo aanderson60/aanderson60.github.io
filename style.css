@@ -282,6 +282,10 @@ p {
 	transform: translateY(-15px);
 }
 
+.buttons img {
+	vertical-align: middle;
+}
+
 /* Project page formatting */
 .project_body {
 	text-align: center;
