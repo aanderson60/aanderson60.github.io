@@ -370,15 +370,15 @@ p {
 }
 
 #project_entry_link {
-	width: 400px;
-	height: 215px;
+	width: 600px;
+	height: 323px;
 	padding: 0;
 	margin: 10px;
 }
 
 .project_entry_i_wrapper {
-	width: 400px;
-	height: 215px;
+	width: 600px;
+	height: 323px;
 	overflow: hidden;
 	position: relative;
 }
@@ -386,8 +386,8 @@ p {
 .project_entry_i {
 	filter: none;
 	background-size: cover;
-	width: 400px;
-	height: 215px;
+	width: 600px;
+	height: 323px;
 	transition: 0.4s ease-in;
 }
 
@@ -398,8 +398,8 @@ p {
 
 .project_entry_i_wrapper {
 	position: relative;
-	width: 400px;
-	height: 215px;
+	width: 600px;
+	height: 323px;
 	border: 1px solid black;
 	border-radius: 25px;
 	top: 50%;
@@ -451,5 +451,5 @@ p {
 
 .projects_wrapper {
 	position: relative;
-	margin-top: 100px;
+	margin-top: 160px;
 }
