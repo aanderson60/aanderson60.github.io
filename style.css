@@ -323,6 +323,13 @@ p {
 	font-weight: normal;
 }
 
+#proj_master_list {
+	display: block;
+	text-align: left;
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
 #return_link {
 	font-size: 24px;
 	font-weight: bold;
