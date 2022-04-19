@@ -299,11 +299,17 @@ p {
 	text-align: center;
 }
 
-.project_body p {
+.project_body p,h3 {
 	text-align: left;
 	display: block;
 	margin-left: 200px;
 	margin-right: 200px;
+}
+
+.project_body h2 {
+	font-weight: bold;
+	text-align: center;
+	padding-top: 15px;
 }
 
 .project_body img {
@@ -321,6 +327,9 @@ p {
 	padding: 0;
 	font-size: 18px;
 	font-weight: normal;
+	font-style: normal;
+	text-decoration: underline;
+	color: black;
 }
 
 #proj_master_list {
@@ -335,6 +344,7 @@ p {
 	font-weight: bold;
 	color: black;
 	text-decoration: underline;
+	text-align: center;
 }
 
 /* Project page entries */

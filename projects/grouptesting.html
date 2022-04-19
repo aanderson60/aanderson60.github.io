@@ -17,8 +17,11 @@
 			</div>
 			<div class="project_body">
                 <h1>Group Testing Research</h1>
+                <h3>This was my research project in the spring semester of 2022. I learned a great deal about some fascinating theory and gained a new appreciation for the precision and meticulousness needed to work as a microbiologist. 
+                    I have explained the theory in detail below, but for a more broad and conceptual overview you can skip to the next bolded section.</h3>
+                <h2>The Theory</h2>
                 <p>Group testing is a strategy to test a set of samples in a way that eliminates the need to test each individual within the set. This is done by pooling groups of samples and testing those groups in an organized, algorithmic way. The strategy intends to minimize false negatives while reducing the number of tests done on the set.
-                    There are two generalized methods for group testing schemes (Aldridge et al., 2019):
+                    There are two generalized methods for group testing schemes [1]:
                 </p>
                 <ul id="proj_master_list"">
                     <li>Adaptive Testing<ul>
@@ -32,13 +35,69 @@
                     </ul></li>
                 </ul>
                 <p>
-                    This research project intends to explore the application of group testing theory in the context of food safety working with salmonella in a set of samples. More specifically, the primary objectives are: 
+                    We are primarily focused on the Combinatorial Orthogonal Matching Pursuit (COMP) scheme, due to Aldridge et al. [1].
+                    The COMP algorithm identifies defectives in the following steps:
                 </p>
                 <ul id="proj_master_list">
-                    <li>To show that non-adaptive group testing schemes can be used to identify salmonella in a sparsely infected population (a prevalence of 1-3%).</li>
-                    <li>To expand upon the current theories of group testing in the framework of food science and understand the limitations of the theory when working with diluted samples of salmonella.</li>
-                    <li>To explore new ideas and strategies to use group testing to reduce time and money demands of testing populations for bacteria in food science.</li>
+                    <li>All individuals in a negative test are taken as Definite Non-Defectives (DNDs) </li>
+                    <li>The remaining individuals in the population are taken to be the Probable Defectives (PDs).</li>
+                    <li>The PDs are then assumed to be the Definite Defectives (DDs).</li>
+                    <li>This algorithm in theory eliminates the possibility of false negatives, but has the possibility of false positives for high prevalences</li>
                 </ul>
+                <p style="font-size: 12px; padding-bottom: 15px;">
+                    [1] M. Aldridge, O. Johnson, and J. Scarlett, "Group Testing: An Information Theory Perspective," <i>Foundations and Trends in Communications and Information Theory</i>, vol. 15, no. 3-4, p. 196–392, December, 2019. [Online]. Available: https://doi.org/10.1561/0100000099. [Accessed Apr. 19, 2022].
+                </p>
+                <h2>A More Conceptual Example: Food Testing</h2>
+                <p>
+                    To understand group testing better, let us consider a more specific case: testing for a pathogen in food.<br>
+                </p>
+                <p>
+                    Assume we have 100 samples that we need to test for a certain pathogen (for simplicity, a bacteria: Salmonella Typh.).
+                    We could test each of the 100 samples individually, but this approach is costly in terms of both time and money. 
+                    Another approach could be to "pool" all 100 samples together and test the pool for the pathogen. If  
+                    the pool tests negative, we would know there is no pathogen in any sample. However, if the pool 
+                    tests positive, we know <i>at least</i> one of the samples is postive, and would have to re-test the entire batch.
+                </p>
+                <p>This is a strategy that Robert Dorfman developed during World War II to screen soldiers for Syphilis. It turns out that this approach is 
+                    quite effective for both a <i>low prevalence</i> and a <i>high sensitivity</i> testing assay. However, this approach requires two "stages" in
+                    order to identify the positive individuals in the case where the pool is positive (at least one individual has Syphilis). 
+                    What if there was a way to identify positive individuals in one testing stage? Let us return to our 100 samples we need to test for presence of Salmonella to explain how this can be done.
+                </p>
+                <p>To begin, we will take the 100 samples we must test and arrange them in a 10 by 10 square matrix with each sample numbered 1-100. The positive samples are 
+                    indicated by red shaded circles:
+                </p>
+                <img src="img/10x10matrix.png" height="400px" width="450px">
+                <p>Now, we will "pool" these samples together in 3 ways: along the 10 rows, along the 10 columns, and along 10 diagonals (starting from the center and moving right, wrapping across the matrix).
+                    We will number each of these tests R1-R10, C1-C10, and D1-D10 for a total of 30 pooled tests.
+                    The diagonals are less intuitive to visualize, so consider the below image:
+                </p>
+                <img src="img/10x10matrix2.png" height="400px" width="500px">
+                <p>With these three positive samples, we will get the following positive tests as illustrated above: R1, R3, R9, C3, C6, C9, D1, D8, D9</p>
+                <p>To decode this result, we will use the Combinatorial Orthogonal Matching Pursuit (COMP). Essentially, the algorithm will identify 
+                    a positive sample at the intersection of three positive tests. So clearly, we correctly identify the postive samples: 9, 23, and 86.
+                </p>
+                <p>Now, you may notice that there is in fact another intersection of 3 positive tests at sample 89. The COMP algorithm will identify 
+                    this as a positive sample, that is, a false positive. This brings us to one of the fundamental tradeoffs of Group Testing design: 
+                    scheme complexity (number of tests) vs. specificity.
+                </p>
+                <p>To model this tradeoff, we can simulate the above scenario many, many, times and randomly "inoculate" a varying number of positive samples to approximate
+                    the true specificity of this algorithm. Consider this in the below plot:
+                </p>
+                <img src="img/plots.png" width="550px" height="400px">
+                <p>This brings us to an interesting observation: for 1 or 2 positive samples, the algorithm will always identify the true positives! In reality, this proves to be 
+                    quite a bit more tricky for two main reasons: 1) you never know the true prevalence of your set of samples and 2) false negatives due to lab error can occur.
+                    However, the behavior of this plot does support the idea that group testing is more efficient than other methods <i>for low prevalances</i>.
+                </p>
+                <h3>
+                    With this in mind, our main aim in this research project is to apply this theory to food testing applications, and discover where the discrepancies lie between 
+                    theory and a non-ideal lab environment. Further, to develop strategies for how the testing schemes can be adapted to these discrepancies.
+                </h3>
+                <p>
+                    For more information on these ideas, you can visit our <a href="https://github.com/aanderson60/group-testing">Github</a> or 
+                    <a href="http://pooling.wikidot.com/">this page</a> put together by the co-PI of this project, Dr. Krishna Narayanan.
+                </p>
+                <br>
+				<a id="return_link" href="../projects">Back to Projects Page</a>
             </div>
             <div class="footer">
 				<p>2022 Alex Anderson<br>
