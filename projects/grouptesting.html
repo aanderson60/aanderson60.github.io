@@ -67,7 +67,8 @@
                     indicated by red shaded circles:
                 </p>
                 <img src="img/10x10matrix.png" height="400px" width="450px">
-                <p>Now, we will "pool" these samples together in 3 ways: along the 10 rows, along the 10 columns, and along 10 diagonals (starting from the center and moving right, wrapping across the matrix).
+                <p>Now, we will "pool" these samples together by taking out some volume from each sample and combining them together in one final volume to be tested. 
+                    This is done in 3 ways: along the 10 rows, along the 10 columns, and along 10 diagonals (starting from the center and moving right, wrapping across the matrix).
                     We will number each of these tests R1-R10, C1-C10, and D1-D10 for a total of 30 pooled tests.
                     The diagonals are less intuitive to visualize, so consider the below image:
                 </p>
@@ -77,16 +78,16 @@
                     a positive sample at the intersection of three positive tests. So clearly, we correctly identify the postive samples: 9, 23, and 86.
                 </p>
                 <p>Now, you may notice that there is in fact another intersection of 3 positive tests at sample 89. The COMP algorithm will identify 
-                    this as a positive sample, that is, a false positive. This brings us to one of the fundamental tradeoffs of Group Testing design: 
+                    this as a probable defective along with the other (positive) samples. This brings us to one of the fundamental tradeoffs of Group Testing design: 
                     scheme complexity (number of tests) vs. specificity.
                 </p>
                 <p>To model this tradeoff, we can simulate the above scenario many, many, times and randomly "inoculate" a varying number of positive samples to approximate
                     the true specificity of this algorithm. Consider this in the below plot:
                 </p>
                 <img src="img/plots.png" width="550px" height="400px">
-                <p>This brings us to an interesting observation: for 1 or 2 positive samples, the algorithm will always identify the true positives! In reality, this proves to be 
+                <p>This brings us to an interesting observation: for 1 or 2 positive samples, the algorithm's estimate of probable defectives will always align with the number of true postives. In reality, this proves to be 
                     quite a bit more tricky for two main reasons: 1) you never know the true prevalence of your set of samples and 2) false negatives due to lab error can occur.
-                    However, the behavior of this plot does support the idea that group testing is more efficient than other methods <i>for low prevalances</i>.
+                    However, the behavior of this plot does support the idea that group testing is more efficient than other methods <i>for low prevalances</i>, even if you have to go back and test a few more samples.
                 </p>
                 <h3>
                     With this in mind, our main aim in this research project is to apply this theory to food testing applications, and discover where the discrepancies lie between 
