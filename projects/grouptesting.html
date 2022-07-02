@@ -18,35 +18,9 @@
 			<div class="project_body">
                 <h1>Group Testing Research</h1>
                 <h3>This was my research project in the spring semester of 2022. I learned a great deal about some fascinating theory and gained a new appreciation for the precision and meticulousness needed to work as a microbiologist. 
-                    I have explained the theory in detail below, but for a more broad and conceptual overview you can skip to the next bolded section.</h3>
-                <h2>The Theory</h2>
-                <p>Group testing is a strategy to test a set of samples in a way that eliminates the need to test each individual within the set. This is done by pooling groups of samples and testing those groups in an organized, algorithmic way. The strategy intends to minimize false negatives while reducing the number of tests done on the set.
-                    There are two generalized methods for group testing schemes [1]:
-                </p>
-                <ul id="proj_master_list"">
-                    <li>Adaptive Testing<ul>
-                        <li>Multiple stages that depend on each other</li>
-                        <li>Stages must be run sequentially</li>
-                    </ul></li>
-                    <li>Non-adaptive testing</li><ul>
-                        <li>One or multiple independent stages</li>
-                        <li>Stages can be run in parallel</li>
-                        <li>Usually much faster</li>
-                    </ul></li>
-                </ul>
-                <p>
-                    We are primarily focused on the Combinatorial Orthogonal Matching Pursuit (COMP) scheme, due to Aldridge et al. [1].
-                    The COMP algorithm identifies defectives in the following steps:
-                </p>
-                <ul id="proj_master_list">
-                    <li>All individuals in a negative test are taken as Definite Non-Defectives (DNDs) </li>
-                    <li>The remaining individuals in the population are taken to be the Probable Defectives (PDs).</li>
-                    <li>The PDs are then assumed to be the Definite Defectives (DDs).</li>
-                    <li>This algorithm in theory eliminates the possibility of false negatives, but has the possibility of false positives for high prevalences</li>
-                </ul>
-                <p style="font-size: 12px; padding-bottom: 15px;">
-                    [1] M. Aldridge, O. Johnson, and J. Scarlett, "Group Testing: An Information Theory Perspective," <i>Foundations and Trends in Communications and Information Theory</i>, vol. 15, no. 3-4, p. 196–392, December, 2019. [Online]. Available: https://doi.org/10.1561/0100000099. [Accessed Apr. 19, 2022].
-                </p>
+                    I have explained the theory in the below linked paper, but for a more broad and conceptual overview you can skip to the next bolded section.</h3>
+                <a id="return_link" href="img/GroupTestingSpring2022Report.pdf">In Depth Summary Paper</a>
+
                 <h2>A More Conceptual Example: Food Testing</h2>
                 <p>
                     To understand group testing better, let us consider a more specific case: testing for a pathogen in food.<br>
