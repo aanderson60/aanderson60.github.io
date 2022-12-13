@@ -51,7 +51,7 @@
                     currents are biased with a current-mode band gap reference for radiation hardness.
                 </p>
                 <p>
-                    On the receive side, a DC-coupled photo-detector delivers the current mode signal to the
+                    On the receive side, a DC-coupled photo-detector delivers the signal to the
                     device. A transimpedance amplifier (TIA) amplifies the signal and converts it to a voltage
                     swing. The amplifier’s primary current source is biased with a current-mode band gap
                     reference for radiation hardness. From here, the differential signal is passed through DC
@@ -80,8 +80,7 @@
                 <p>
                     Triple modular redundancy (TMR) involves creating three copies of a certain circuit, usually
                     digital control or some module with latching elements, and performing a “vote” on the output
-                    to ensure the signals are identical and a single event upset (SEU) has not occurred. If the
-                    three outputs are not identical, the bit will be thrown out. The use of TMR is intended to
+                    to ensure the signals are identical and a single event upset (SEU) has not occurred. The use of TMR is intended to
                     counter SEUs on latching elements, that is, when a particle strikes a latch or flip-flop and
                     causes the bit to reverse. Since the probability of three SEUs simultaneously is extremely
                     unlikely, TMR is effective at eliminating these effects.
