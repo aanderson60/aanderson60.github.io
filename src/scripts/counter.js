@@ -1,4 +1,4 @@
-var gradDate = new Date("May 8, 2023 09:00:00 CST").getTime();
+var gradDate = new Date("May 13, 2023 14:00:00 CST").getTime();
 
 var x = setInterval(function() {
     var currDate = new Date().getTime();
@@ -12,8 +12,10 @@ var x = setInterval(function() {
     var roundedS = seconds + milisec/1000;
     roundedS = roundedS.toFixed(1);
     var formatMs = roundedS.toString();
-
-    var formattedStr = days + ((days==1) ? " day, " : " days, ") + hours + ((hours==1) ? " hour, " : " hours, ") + minutes + ((minutes==1) ? " minute, " : " minutes, and ") + formatMs + " seconds.";
+    if (timeLeft > 0)
+        var formattedStr = days + ((days==1) ? " day, " : " days, ") + hours + ((hours==1) ? " hour, " : " hours, ") + minutes + ((minutes==1) ? " minute, " : " minutes, and ") + formatMs + " seconds.";
+    else 
+        var formattedStr = "";
     document.getElementById('counter').innerHTML = formattedStr;
     return false;
 },100);
