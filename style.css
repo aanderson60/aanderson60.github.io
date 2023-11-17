@@ -72,7 +72,7 @@ h2 {
 
 #interests {
 	margin: 0 auto;
-	width: 30%;
+	width: 90%;
 }
 
 p {
@@ -444,4 +444,28 @@ p {
 .projects_wrapper {
 	position: relative;
 	margin-top: 130px;
+}
+
+.image_container {
+    width: 30%; /* Adjust this width as needed */
+    float: left; /* Adjust this margin as needed */
+}
+
+.image_container img {
+    max-width: 200px;
+    width: 100%;
+    border-radius: 50%; /* To make the image circular, adjust as needed */
+    display: block;
+    margin: 0 auto;
+}
+
+.text_content {
+    width: 60%; /* Adjust this width as needed */
+    float: left;
+
+}
+
+.main_content {
+    max-width: 900px;
+    margin: 0 auto;
 }
