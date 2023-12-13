@@ -73,6 +73,7 @@ h2 {
 #interests {
 	margin: 0 auto;
 	width: 90%;
+	font-size: 18px;
 }
 
 p {
@@ -159,7 +160,7 @@ p {
 	display: block;
 	color: #42454a;
 	padding: 38px;
-	font-size: 24px;
+	font-size: 30px;
 	text-decoration: none;
 	font-weight: bold;
 	text-align: center;
@@ -169,7 +170,7 @@ p {
 	display: block;
 	color: #42454a;
 	padding: 38px;
-	font-size: 24px;
+	font-size: 30px;
 	text-decoration: none;
 	text-align: center;
 	padding-bottom: 5px;
@@ -284,16 +285,18 @@ p {
 /* Contact formatting */
 .buttons {
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	margin-top: 30px;
 	margin-bottom: 50px;
+	margin-left: 60px;
 }
 
 .buttons a {
 	white-space: nowrap;
 	text-align: center;
 	display: inline-block;
-	padding-left: 50px;
+	margin-left: 20px;
+	margin-right:20px;
 	transition: transform 0.5s ease-in-out;
 }
 
@@ -447,25 +450,37 @@ p {
 }
 
 .image_container {
-    width: 30%; /* Adjust this width as needed */
-    float: left; /* Adjust this margin as needed */
+    width: 30%;
+    float: left;
+	margin-top: 30px;
 }
 
 .image_container img {
-    max-width: 200px;
+    max-width: 250px;
     width: 100%;
-    border-radius: 50%; /* To make the image circular, adjust as needed */
+    border-radius: 0%;
     display: block;
     margin: 0 auto;
+	margin-right: 20px;
 }
 
 .text_content {
-    width: 60%; /* Adjust this width as needed */
+    width: 60%; 
     float: left;
-
+	text-align: left;
+	margin-left: 50px;
 }
 
 .main_content {
     max-width: 900px;
     margin: 0 auto;
+}
+
+.main_content p {
+	text-align: left;
+}
+
+.title_container h1 {
+	font-size: 38px;
+	margin-bottom: 20px;
 }
