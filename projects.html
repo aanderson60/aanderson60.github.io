@@ -7,13 +7,29 @@
 	</head>
 	<body>
 		<div class="fade-in">
-			<div class="header">
-			<ul>
-				<li><a class="link_animation" href="index">Home</a></li>
-				<li><span id="current_link">Projects</span></li>
-				<li><a class="link_animation" href="resume">Resume</a></li>
-			</ul>
-		</div>
+			<!-- Left sidebar navigation -->
+			<nav class="sidebar" aria-label="Primary">
+				<ul>
+					<li><a class="link_animation" href="index">Home</a></li>
+					<li class="has-children open">
+						<button class="toggle" aria-expanded="true">Projects ▾</button>
+						<ul class="submenu">
+							<li><a href="projects">All Projects</a></li>
+							<li><a href="projects/merged-lna-mixer.pdf">2.4-GHz direct-conversion merged LNA-Mixer and QVCO in 90nm CMOS</a></li>
+							<li><a href="projects/audio-amp.pdf">A high-swing, bipolar class-AB amplifier for 8Ω speaker applications</a></li>
+							<li><a href="projects/pipeline-adc.pdf">11-Bit 200MS/s pipeline analog-to-digital converter in 180nm CMOS</a></li>
+							<li><a href="projects/620finalreport.pdf">10 Gb/s clock and data recovery system in 90nm CMOS</a></li>
+							<li><a href="https://hdl.handle.net/1969.1/200267">Radiation-hardened optical transceiver</a></li>
+							<li><a href="projects/vlsireport.pdf">Fully-differential opamp with common-mode feedback</a></li>
+							<li><a href="projects/grouptesting">Group testing for food safety</a></li>
+							<li><a href="projects/mymirror">TAMUHack 2022 - myMirror</a></li>
+							<li><a href="projects/FM-Radio">FM Radio Demodulation and Analysis</a></li>
+						</ul>
+					</li>
+					<li><a class="link_animation" href="resume">Resume</a></li>
+					<li><a class="link_animation" href="contact">Contact</a></li>
+				</ul>
+			</nav>
 			<div class="projects_wrapper">
 				<a id="project_entry_link" href="projects/merged-lna-mixer.pdf">
 					<div class="project_entry_i_wrapper">
@@ -108,12 +124,13 @@
 				</a>
 			</div>
 			<div class="footer">
-				<p>2024 Alex Anderson<br>
+				<p>2025 Alex Anderson<br>
 					<a href="index">Home</a>
 					<a href="projects">Projects</a>
 					<a href="resume">Resume</a>
 				</p>
 			</div>
 		</div>
+		<script src="src/scripts/sidebar.js" defer></script>
 	</body>
 </html>

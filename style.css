@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap');
 
 html {
 	height: 100%;
@@ -13,10 +13,12 @@ html {
 
 body {
 	background-color: #dadfe8;
-	font-family: "Lato", sans-serif;
+	font-family: "Zalando Sans", sans-serif;
 	position: relative;
 	min-height: 100%;
 	padding-bottom: 6rem;
+	/* leave space for a fixed left sidebar */
+	padding-left: 260px;
 }
 
 /* Fade in animation */
@@ -42,20 +44,20 @@ body {
 
 /* Misc */
 h1 {
-	color: black;
+	color: rgb(20, 20, 20);
 	font-size: 36px;
 	text-align: center;
 }
 
 h2 {
-	color: black;
+	color: rgb(20, 20, 20);
 	text-align: center;
 	font-weight: normal;
 }
 
 #inline_link {
 	text-decoration: underline;
-	color: black;
+	color: rgb(40, 40, 40);
 }
 
 #inline_link:hover {
@@ -63,21 +65,15 @@ h2 {
 }
 
 #counter {
-	font-family: "Inconsolata", monospace;
+	font-family: "Zalando Sans", sans-serif;
 	color: gray;
 	font-size: 23px;
 	text-align: center;
 	padding: 10px;
 }
 
-#interests {
-	margin: 0 auto;
-	width: 90%;
-	font-size: 18px;
-}
-
 p {
-	color: black;
+	color: rgb(40, 40, 40);
 	font-size: 18px;
 	text-align: center;
 }
@@ -86,14 +82,11 @@ p {
 
 .title_container h1 {
 	white-space: nowrap;
-	display: inline-block;
 	padding-right: 10px;
 	padding-bottom: 0px;
 	padding-top: 0px;
-}
-
-.title_container {
-	text-align: center;
+	margin-top: 20px;
+	text-align: left;
 }
 
 @keyframes titleFade2 {
@@ -106,16 +99,10 @@ p {
 	}
 }
 
-#title1 {
-	animation: fadeIn linear 2s;
-}
-#title2 {
-	animation: titleFade2 linear 2s;
-}
-
 /* Footer Stuff */
 .content {
 	flex: 1 1 auto;
+	margin-left: 50px;
 }
 
 .footer {
@@ -135,7 +122,7 @@ p {
 	text-decoration: none;
 	font-size: 12px;
 	font-style: italic;
-	color: black;
+	color: rgb(40, 40, 40);
 	padding: 4px;
 }
 
@@ -200,23 +187,122 @@ p {
 	transform: scaleX(0.6);
 }
 
+/* Generic link animation (applies to nav links using .link_animation anywhere) */
+.link_animation {
+	position: relative;
+}
+.link_animation::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #42454a;
+	transform: scaleX(0);
+	transform-origin: left center;
+	transition: transform 0.28s cubic-bezier(.2,.9,.2,1);
+}
+.link_animation:hover::before,
+.link_animation:focus::before {
+	transform: scaleX(1);
+}
+
+/* Left sidebar navigation (fixed) */
+.sidebar {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 240px;
+	height: 100vh;
+	padding-top: 10px;
+	background: rgba(255,255,255,0.02);
+	border-right: 1px solid rgba(0,0,0,0.06);
+	z-index: 1000;
+}
+.sidebar ul {
+	list-style: none;
+	margin: 0;
+	padding: 8px 12px;
+}
+.submenu li a {
+	margin-right: 20px;
+}
+.sidebar li { 
+	margin-bottom: 6px; 
+	text-align: right;
+}
+.sidebar img {
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+.sidebar a, .sidebar .toggle {
+	color: rgb(40, 40, 40);
+	background: none;
+	border: none;
+	font-size: 18px;
+	display: inline-block;
+	padding: 8px 10px;
+	text-decoration: none;
+	cursor: pointer;
+}
+.sidebar .submenu {
+	padding-left: 12px;
+	margin-top: 6px;
+	display: none;
+}
+.sidebar .has-children.open > .submenu { display: block; }
+
+@media (max-width: 700px) {
+	.sidebar { position: static; width: 100%; height: auto; border-right: none; padding-top: 8px; }
+	body { padding-left: 0; }
+}
+
+/* Tree connector lines: vertical spine from the toggle down the submenu
+   and horizontal connectors that reach the right edge of each submenu item.
+   These are purely decorative and scoped to .sidebar so they won't affect
+   other components. */
+.sidebar .has-children { position: relative; }
+.sidebar .has-children::after {
+	content: "";
+	position: absolute;
+	left: 205px; /* aligns roughly with submenu start */
+	top: 44px;  /* starts below the toggle */
+	bottom: 31px; /* extends to near the last submenu item */
+	width: 2px;
+	background: rgba(66, 69, 74, 0.12);
+	pointer-events: none;
+}
+.sidebar .submenu li { position: relative; }
+.sidebar .submenu li::before {
+	content: "";
+	position: absolute;
+	left: 170px; /* connect from vertical spine */
+	right: 0;   /* extend to the right edge of the submenu item */
+	top: 50%;
+	transform: translateY(-50%);
+	height: 2px;
+	background: rgba(66, 69, 74, 0.12);
+	pointer-events: none;
+}
+
 /* Resume formatting */
 .resume_format {
-	margin-left: 300px;
+	margin-left: 50px;
 	margin-right: 300px;
 	padding: 10px;
-	text-align: center;
+	text-align: left;
 }
 
 .resume_format h1 {
-	color: black;
+	color: rgb(40,40,40);
 	font-size: 30px;
 	text-align: left;
 	margin-bottom: 5px;
 }
 
 .resume_format h2 {
-	color: rgb(74,74,74);
+	color: rgb(40,40,40);
 	font-size: 22px;
 	text-align: left;
 	font-weight: bold;
@@ -224,7 +310,7 @@ p {
 }
 
 .resume_format h3 {
-	color: black;
+	color: rgb(40,40,40);
 	font-size: 18px;
 	font-weight: bold;
 	text-align: left;
@@ -233,7 +319,7 @@ p {
 }
 
 .resume_format p {
-	color: rgb(74,74,74);
+	color: rgb(40,40,40);
 	font-size: 16px;
 	text-align: left;
 	margin-top: 10px;
@@ -245,24 +331,25 @@ p {
 	margin-bottom: 20px;
 }
 
-.resume_format ul,li,ul {
+.resume_format ul,
+.resume_format li {
 	margin-bottom: 1px;
 }
 
 .resume_format li {
-	color: rgb(74,74,74);
+	color: rgb(40,40,40);
 	font-size: 16px;
 	padding: 1px;
 }
 
 .resume_format a {
 	font-style: normal;
-	color: rgb(74,74,74);
+	color: rgb(40,40,40);
 	text-decoration: underline;
 }
 
 .resume_format hr {
-    color:rgb(74, 74, 74);
+    color:rgb(40,40,40);
     border-style: solid;
     margin: 0;
     margin-bottom: 10px;
@@ -288,7 +375,7 @@ p {
 	text-align: left;
 	margin-top: 30px;
 	margin-bottom: 50px;
-	margin-left: 60px;
+	margin-left: 0px;
 }
 
 .buttons a {
@@ -371,10 +458,10 @@ p {
 }
 
 .project_entry_i_wrapper {
-	width: 500px;
-	height: 269px;
-	overflow: hidden;
-	position: relative;
+    width: 500px;
+    height: 269px;
+    overflow: hidden;
+    position: relative;
 }
 
 .project_entry_i {
@@ -394,6 +481,7 @@ p {
 	position: relative;
 	width: 500px;
 	height: 269px;
+	overflow: hidden;
 	border: 1px solid black;
 	border-radius: 25px;
 	top: 50%;
@@ -468,12 +556,6 @@ p {
     width: 60%; 
     float: left;
 	text-align: left;
-	margin-left: 50px;
-}
-
-.main_content {
-    max-width: 900px;
-    margin: 0 auto;
 }
 
 .main_content p {
@@ -482,5 +564,5 @@ p {
 
 .title_container h1 {
 	font-size: 38px;
-	margin-bottom: 20px;
+	margin-bottom: 21px;
 }

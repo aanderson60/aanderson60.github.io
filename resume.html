@@ -7,13 +7,28 @@
 	</head>
 	<body>
 		<div class="fade-in">
-			<div class="header">
-			<ul>
-				<li><a class="link_animation" href="index">Home</a></li>
-				<li><a class="link_animation" href="projects">Projects</a></li>
-				<li><span id="current_link">Resume</span></li>
-			</ul>
-			</div>
+			<!-- Left sidebar navigation -->
+			<nav class="sidebar" aria-label="Primary">
+				<ul>
+					<li><img src="src/favicon.ico" width=50px height=50px></li>
+					<li><a class="link_animation" href="index">Home</a></li>
+					<li class="has-children" style="text-align: right;">
+						<button class="toggle link_animation" aria-expanded="false">Projects</button>
+						<ul class="submenu">
+							<li><a href="projects/merged-lna-mixer.pdf">LNA-Mixer</a></li>
+							<li><a href="projects/audio-amp.pdf">Audio Amp</a></li>
+							<li><a href="projects/pipeline-adc.pdf">Pipeline ADC</a></li>
+							<li><a href="projects/620finalreport.pdf">CDR</a></li>
+							<li><a href="https://hdl.handle.net/1969.1/200267">Rad-hard TRX</a></li>
+							<li><a href="projects/vlsireport.pdf">Op-Amp</a></li>
+							<li><a href="projects/grouptesting">Group Testing</a></li>
+							<li><a href="projects/mymirror">myMirror</a></li>
+							<li><a href="projects/FM-Radio">FM Radio</a></li>
+						</ul>
+					</li>
+					<li><a class="link_animation" href="resume">▸ Resume</a></li>
+				</ul>
+			</nav>
 			<div class="resume_format">
                 <h1>Education</h1>
                 <hr>
@@ -39,7 +54,7 @@
 					<p style="float:right"><b>Summer 2024 - Present</b></h3>
 				</div>
                 <br>
-                <p>&emsp;&emsp;  Analog Design Engineer, High-Speed Signal Conditioning Group</p>
+                <p>&emsp;&emsp;  Analog Design Engineer, FPD-Link Group</p>
                 <br>
 
                 <div class="rl_heading">
@@ -171,14 +186,7 @@
 				</ul>
 			--->
 			</div>
-		
-			<div class="footer">
-				<p>2024 Alex Anderson<br>
-					<a href="index">Home</a>
-					<a href="projects">Projects</a>
-					<a href="resume">Resume</a>
-				</p>
-			</div>
 		</div>
+		<script src="src/scripts/sidebar.js" defer></script>
 	</body>
 </html>
