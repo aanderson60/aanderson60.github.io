@@ -7,19 +7,32 @@
 	</head>
 	<body>
 		<div class="fade-in">
-			<div class="header">
-			<ul>
-				<li><a class="link_animation" href="../index">Home</a></li>
-				<li><a class="link_animation" href="../projects">Projects</a></li>
-				<li><a class="link_animation" href="../resume">Resume</a></li>
-				<li><a class="link_animation" href="../contact">Contact</a></li>
-			</ul>
-			</div>
+            <nav class="sidebar" aria-label="Primary">
+				<ul>
+					<li><img src="../src/favicon.ico" width=50px height=50px></li>
+					<li><a class="link_animation" href="index">Home</a></li>
+					<li class="has-children" style="text-align: right;">
+						<button class="toggle link_animation" aria-expanded="true">Projects</button>
+						<ul class="submenu">
+							<li><a href="projects/merged-lna-mixer.pdf">LNA-Mixer</a></li>
+							<li><a href="projects/audio-amp.pdf">Audio Amp</a></li>
+							<li><a href="projects/pipeline-adc.pdf">Pipeline ADC</a></li>
+							<li><a href="projects/620finalreport.pdf">CDR</a></li>
+							<li><a href="https://hdl.handle.net/1969.1/200267">Rad-Hard TRX</a></li>
+							<li><a href="projects/vlsireport.pdf">Op-Amp</a></li>
+							<li><a href="projects/grouptesting">▸ Group Testing</a></li>
+							<li><a href="projects/mymirror">myMirror</a></li>
+							<li><a href="projects/FM-Radio">FM Radio</a></li>
+						</ul>
+					</li>
+					<li><a class="link_animation" href="resume">Resume</a></li>
+				</ul>
+			</nav>
 			<div class="project_body">
                 <h1>Group Testing Research</h1>
-                <h3>This was my research project in the spring semester of 2022. I learned a great deal about some fascinating theory and gained a new appreciation for the precision and meticulousness needed to work as a microbiologist. 
-                    I have explained the theory in the below linked paper, but for a more broad and conceptual overview you can skip to the next bolded section.</h3>
-                <a id="return_link" href="img/GroupTestingSpring2022Report.pdf">In Depth Summary Paper</a>
+                <p>This was my research project in the spring semester of 2022. I learned a great deal about some fascinating theory and gained a new appreciation for the precision and meticulousness needed to work as a microbiologist. 
+                    I have explained the theory in the below linked paper, but for a more broad and conceptual overview you can skip to the next bolded section.</p>
+                <a href="img/GroupTestingSpring2022Report.pdf">In Depth Summary Paper</a>
 
                 <h2>A More Conceptual Example: Food Testing</h2>
                 <p>
@@ -63,24 +76,16 @@
                     quite a bit more tricky for two main reasons: 1) you never know the true prevalence of your set of samples and 2) false negatives due to lab error can occur.
                     However, the behavior of this plot does support the idea that group testing is more efficient than other methods <i>for low prevalances</i>, even if you have to go back and test a few more samples.
                 </p>
-                <h3>
+                <p>
                     With this in mind, our main aim in this research project is to apply this theory to food testing applications, and discover where the discrepancies lie between 
                     theory and a non-ideal lab environment. Further, to develop strategies for how the testing schemes can be adapted to these discrepancies.
-                </h3>
+                </p>
                 <p>
-                    For more information on these ideas, you can visit our <a href="https://github.com/aanderson60/group-testing">Github</a> or 
-                    <a href="http://pooling.wikidot.com/">this page</a> put together by the co-PI of this project, Dr. Krishna Narayanan.
+                    For more information on these ideas, you can visit our <a id="inline_link" href="https://github.com/aanderson60/group-testing">Github</a> or 
+                    <a id="inline_link" href="http://pooling.wikidot.com/">this page</a> put together by the co-PI of this project, Dr. Krishna Narayanan.
                 </p>
                 <br>
-				<a id="return_link" href="../projects">Back to Projects Page</a>
             </div>
-            <div class="footer">
-				<p>2022 Alex Anderson<br>
-					<a href="../index">Home</a>
-					<a href="../projects">Projects</a>
-					<a href="../resume">Resume</a>
-					<a href="../contact">Contact</a>
-				</p>
-			</div>
         </div>
+        <script src="../src/scripts/sidebar.js" defer></script>
     </body>

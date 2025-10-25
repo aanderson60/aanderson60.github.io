@@ -17,11 +17,9 @@ body {
 	position: relative;
 	min-height: 100%;
 	padding-bottom: 6rem;
-	/* leave space for a fixed left sidebar */
 	padding-left: 260px;
 }
 
-/* Fade in animation */
 @keyframes fadeIn {
 	0% {
 		opacity: 0;
@@ -30,13 +28,7 @@ body {
 	}
 }
 
-@keyframes fadeOut {
-	0% {
-		opacity: 1;
-	} 100% {
-		opacity: 0;
-	}
-}
+
 
 .fade-in {
 	animation: fadeIn ease 1s;
@@ -46,7 +38,7 @@ body {
 h1 {
 	color: rgb(20, 20, 20);
 	font-size: 36px;
-	text-align: center;
+	text-align: left;
 }
 
 h2 {
@@ -58,24 +50,19 @@ h2 {
 #inline_link {
 	text-decoration: underline;
 	color: rgb(40, 40, 40);
+	margin: 0;
 }
 
 #inline_link:hover {
 	font-style: italic;
 }
 
-#counter {
-	font-family: "Zalando Sans", sans-serif;
-	color: gray;
-	font-size: 23px;
-	text-align: center;
-	padding: 10px;
-}
+
 
 p {
 	color: rgb(40, 40, 40);
 	font-size: 18px;
-	text-align: center;
+	text-align: left;
 }
 
 /* Title animation */
@@ -87,6 +74,7 @@ p {
 	padding-top: 0px;
 	margin-top: 20px;
 	text-align: left;
+	margin-left: 0px;
 }
 
 @keyframes titleFade2 {
@@ -143,16 +131,6 @@ p {
 	float: left;
 }
 
-#current_link {
-	display: block;
-	color: #42454a;
-	padding: 38px;
-	font-size: 30px;
-	text-decoration: none;
-	font-weight: bold;
-	text-align: center;
-}
-
 .header a {
 	display: block;
 	color: #42454a;
@@ -161,30 +139,6 @@ p {
 	text-decoration: none;
 	text-align: center;
 	padding-bottom: 5px;
-}
-
-/* Animation for header links */
-
-.header a.link_animation {
-	position: relative;
-}
-
-.header a.link_animation::before {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 2px;
-	bottom: 0;
-	left: 0;
-	background-color: #42454a;
-	visibility: hidden;
-	transform: scaleX(0);
-	transition: all 0.3s ease-in-out;
-}
-
-.header a.link_animation:hover::before {
-	visibility: visible;
-	transform: scaleX(0.6);
 }
 
 /* Generic link animation (applies to nav links using .link_animation anywhere) */
@@ -359,15 +313,7 @@ p {
 	font-style: italic;
 }
 
-.rl_heading h3{
-	white-space: nowrap;
-	display: inline-block;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-block-end: 0px;
-    margin: 0px;
-    font-weight: normal;
-}
+
 
 /* Contact formatting */
 .buttons {
@@ -397,30 +343,33 @@ p {
 
 /* Project page formatting */
 .project_body {
-	text-align: center;
+	text-align: left;
 }
 
-.project_body p,h3 {
+.project_body p, .project_body h3,.project_body h1 {
 	text-align: left;
 	display: block;
-	margin-left: 200px;
+	margin-left: 50px;
 	margin-right: 200px;
 }
 
 .project_body h2 {
 	font-weight: bold;
-	text-align: center;
+	text-align: left;
 	padding-top: 15px;
+	margin-left: 50px;
 }
 
 .project_body img {
 	margin-top: 20px;
+	margin-left: 75px;
 }
 
 .project_body figcaption {
 	font-style: italic;
 	margin-top: 10px;
-	color: rgb(74, 74, 74);
+	margin-left: 75px;
+	color: rgb(40,40,40);
 }
 
 .project_body a {
@@ -430,14 +379,8 @@ p {
 	font-weight: normal;
 	font-style: normal;
 	text-decoration: underline;
-	color: black;
-}
-
-#proj_master_list {
-	display: block;
-	text-align: left;
-	margin-left: 200px;
-	margin-right: 200px;
+	margin-left: 50px;
+	color: rgb(40,40,40);
 }
 
 #return_link {
@@ -537,20 +480,7 @@ p {
 	margin-top: 130px;
 }
 
-.image_container {
-    width: 30%;
-    float: left;
-	margin-top: 30px;
-}
 
-.image_container img {
-    max-width: 250px;
-    width: 100%;
-    border-radius: 0%;
-    display: block;
-    margin: 0 auto;
-	margin-right: 20px;
-}
 
 .text_content {
     width: 60%; 
