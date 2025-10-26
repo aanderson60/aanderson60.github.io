@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel='shortcut icon' type='image/ico' href='../src/favicon.ico' />
+		<link rel="stylesheet" href="../style.css">
+		<title>Projects - Audio Amplifier</title>
+	</head>
+	<body>
+		<div class="fade-in">
+			<nav class="sidebar" aria-label="Primary">
+				<ul>
+					<li><img src="../src/favicon.ico" width=50px height=50px></li>
+					<li><a class="link_animation" href="../index">Home</a></li>
+					<li class="has-children" style="text-align: right;">
+						<button class="toggle link_animation" aria-expanded="true">Projects</button>
+						<ul class="submenu">
+							<li><a href="../projects/merged-lna-mixer">LNA-Mixer</a></li>
+							<li><a href="../projects/audio-amp">▸ Audio Amp</a></li>
+							<li><a href="../projects/pipeline-adc">Pipeline ADC</a></li>
+							<li><a href="../projects/620finalreport.pdf">CDR</a></li>
+							<li><a href="../https://hdl.handle.net/1969.1/200267">Rad-Hard TRX</a></li>
+							<li><a href="../projects/vlsireport.pdf">Op-Amp</a></li>
+							<li><a href="../projects/grouptesting">Group Testing</a></li>
+							<li><a href="../projects/mymirror">myMirror</a></li>
+							<li><a href="../projects/FM-Radio">FM Radio</a></li>
+						</ul>
+					</li>
+					<li><a class="link_animation" href="../resume">Resume</a></li>
+				</ul>
+			</nav>
+			<div class="project_body">
+				<section>
+					<h1>A High-Swing Bipolar Class-AB Amplifier for 8Ω Speaker Applications</h1>
+					<p>
+						This project, from the ECEN 489 Audio Engineering course at Texas A&M, presents the design and implementation of a 
+						high-swing bipolar audio amplifier with a class-AB output stage. The amplifier is capable of driving an 8Ω load 
+						with up to 4 W<sub>RMS</sub> output power and 0.035% total harmonic distortion (THD) at 1 W<sub>RMS</sub>. 
+						The design was verified both in simulation and experimentally using a Dayton Audio CE81PF-8 speaker.
+					</p>
+
+					<h2>Full Project Report</h2>
+					<div class="proj_button">
+						<a href="../projects/audio-amp.pdf"><img src="../src/page.png" alt="project_report" width="90px" height="90px"></a>
+					</div>
+
+					<h2>Theoretical Background</h2>
+					<p>
+						Audio amplifiers must deliver substantial current to low-impedance loads, such as 4–8Ω speakers, while maintaining low distortion and high efficiency.
+						Common output topologies include class-A, class-B, and class-AB stages. A class-A amplifier conducts current through the entire waveform, 
+						providing excellent linearity but poor efficiency. Conversely, class-B amplifiers conduct for only half the waveform, doubling efficiency but introducing 
+						crossover distortion.
+					</p>
+					<p>
+						The class-AB configuration provides an optimal tradeoff: each output device conducts slightly more than 50% of the cycle by applying a small
+						bias voltage to the transistor bases. This greatly reduces crossover distortion while retaining high efficiency. 
+						The amplifier also utilizes Darlington pair configurations to boost current gain while preserving input impedance and linearity, 
+						enabling better drive capability for the final power stage.
+					</p>
+					<p>
+						The overall system employs two cascaded amplifier stages: a low-noise preamplifier for volume control and a 
+						power output stage to drive the speaker. Negative feedback is used throughout the design to reduce distortion and stabilize 
+						the DC operating point.
+					</p>
+
+					<h2>Topology and Design Highlights</h2>
+					<p>
+						The amplifier consists of a preamp and a fixed-gain stage, followed by a class-AB emitter-follower output stage. The preamp uses a 
+						TI OPA134 op-amp in non-inverting configuration with a logarithmic potentiometer to allow fine volume control. The second stage 
+						uses a bipolar current-mirror operational transconductance amplifier (OTA) providing over 60 dB open-loop gain 
+						and a bandwidth above 50 kHz.
+					</p>
+					<p>
+						The output stage employs TIP122 (NPN) and TIP127 (PNP) Darlington power transistors in an 
+						emitter-follower configuration, delivering up to 0.5 A peak current. A bias network provides approximately ±1.4 V base bias 
+						to maintain class-AB conduction. Heat-sinking and parallel device configurations were used to mitigate thermal effects.
+					</p>
+					<p>
+						The current mirror bias circuit generates the supply currents required by the OTA and output stages, ensuring high output resistance 
+						and stable bias over temperature. The design operates from symmetrical ±10 V supplies, allowing a large signal swing close to 80% of the rail-to-rail limit.
+					</p>
+
+					<h2>Achieved Results</h2>
+					<p>
+						The amplifier was simulated in Multisim and verified experimentally. Simulations achieved excellent linearity and stability, with real-world measurements 
+						showing consistent qualitative performance despite breadboard limitations.
+					</p>
+					<ul>
+						<li><strong>Output Swing:</strong> ±8 V<sub>pk</sub></li>
+						<li><strong>Output Power:</strong> 4 W<sub>RMS</sub> (simulated), 0.8 W<sub>RMS</sub> (measured)</li>
+						<li><strong>Open-Loop Gain:</strong> 62.6 dB (simulated)</li>
+						<li><strong>Phase Margin:</strong> 104°</li>
+						<li><strong>Bandwidth:</strong> 51.5 kHz (simulated), 67.2 kHz (measured)</li>
+						<li><strong>THD @ 1 W<sub>RMS</sub>:</strong> 0.035% (simulated), 3.86% (measured)</li>
+						<li><strong>Quiescent Power:</strong> 4.3 W</li>
+						<li><strong>Input-Referred Noise:</strong> 8.52 µV<sub>RMS</sub></li>
+					</ul>
+
+					<h2>Conclusion</h2>
+					<p>
+						The high-swing bipolar class-AB amplifier achieved the intended design objectives, demonstrating excellent simulated performance 
+						and successful hardware validation. Measurement deviations are attributed to breadboard parasitics, thermal drift, and coupling noise.
+						Despite these limitations, the amplifier produced audibly clean output with low distortion at typical listening levels.
+					</p>
+					<p>
+						Future improvements could include implementing the circuit on a PCB or perfboard for reduced parasitics, improved heat dissipation, 
+						and more accurate characterization. The project effectively demonstrates practical analog design techniques for low-distortion 
+						audio amplification using discrete bipolar transistors.
+					</p>
+				</section>
+			</div>
+		</div>
+		<script src="../src/scripts/sidebar.js" defer></script>
+	</body>
+</html>

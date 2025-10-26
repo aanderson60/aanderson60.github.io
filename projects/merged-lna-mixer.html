@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel='shortcut icon' type='image/ico' href='../src/favicon.ico' />
+		<link rel="stylesheet" href="../style.css">
+		<title>Projects - Merged LNA-Mixer</title>
+	</head>
+	<body>
+		<div class="fade-in">
+			<nav class="sidebar" aria-label="Primary">
+				<ul>
+					<li><img src="../src/favicon.ico" width=50px height=50px></li>
+					<li><a class="link_animation" href="../index">Home</a></li>
+					<li class="has-children" style="text-align: right;">
+						<button class="toggle link_animation" aria-expanded="true">Projects</button>
+						<ul class="submenu">
+							<li><a href="../projects/merged-lna-mixer">▸ LNA-Mixer</a></li>
+							<li><a href="../projects/audio-amp">Audio Amp</a></li>
+							<li><a href="../projects/pipeline-adc">Pipeline ADC</a></li>
+							<li><a href="../projects/620finalreport.pdf">CDR</a></li>
+							<li><a href="../https://hdl.handle.net/1969.1/200267">Rad-Hard TRX</a></li>
+							<li><a href="../projects/vlsireport.pdf">Op-Amp</a></li>
+							<li><a href="../projects/grouptesting">Group Testing</a></li>
+							<li><a href="../projects/mymirror">myMirror</a></li>
+							<li><a href="../projects/FM-Radio">FM Radio</a></li>
+						</ul>
+					</li>
+					<li><a class="link_animation" href="../resume">Resume</a></li>
+				</ul>
+			</nav>
+			<div class="project_body">
+				<section>
+                <h1>A 2.4-GHz Direct-Conversion Merged LNA-Mixer and QVCO in 90nm CMOS</h1>
+                <p>
+                    This project, from the RFIC course at Texas A&M, presents the design and simulation of a 2.4GHz direct-conversion receiver frontend implemented in 
+                    90nm CMOS technology. The design features a fully differential merged LNA-mixer and a quadrature voltage-controlled oscillator (QVCO), 
+                    optimized for low power consumption and high integration efficiency in modern wireless systems.
+                </p>
+                <h2>Full Project Report</h2>
+                <div class="proj_button">
+					<a href="../projects/merged-lna-mixer.pdf"><img src="../src/page.png" alt="project_report" width="90px" height="90px"></a>
+				</div>
+                <h2>Theoretical Background</h2>
+                <p>
+                    In radio frequency (RF) receiver design, several architectures are commonly used — including heterodyne, image-reject, and direct-conversion types. 
+                    The direct-conversion receiver (also known as zero-IF) eliminates intermediate frequency (IF) stages by downconverting 
+                    the input RF signal directly to baseband:
+                </p>
+                <p id="equation">f<sub>IF</sub> = f<sub>LO</sub> − f<sub>RF</sub></p>
+                <p>
+                    Since <em>f<sub>LO</sub></em> is nearly equal to <em>f<sub>RF</sub></em>, the IF lies close to DC, enabling the use of low-pass filters 
+                    instead of bulky off-chip bandpass filters. This enhances integration and simplifies the overall receiver chain.
+                </p>
+                <p>
+                    A critical requirement for direct-conversion systems is >quadrature local oscillator (LO) generation — providing I and Q 
+                    signals 90° apart to support complex demodulation and mitigate self-mixing effects. This project achieves that using a low-power 
+                    Quadrature VCO (QVCO) with anti-phase coupling.
+                </p>
+                <p>
+                    Power efficiency is further improved through the use of a merged LNA–mixer architecture, in which the current generated 
+                    by the low-noise amplifier (LNA) directly feeds the mixer’s transconductance stage. While this approach minimizes power and area, it 
+                    introduces a tradeoff with linearity, as the reduced headroom limits the achievable IIP3.
+                </p>
+                <h2>Topology and Design Highlights</h2>
+                <p>
+                    The frontend employs a merged LNA-mixer topology where the low-noise amplifier and mixer share current flow, 
+                    significantly improving power efficiency. The LNA uses a cascode common-source configuration with inductive 
+                    source and gate degeneration for input matching, while the mixer is based on a Gilbert cell quadrature structure
+                    to support direct-conversion architecture.
+                </p>
+                <p>
+                    A quadrature VCO (QVCO) with anti-phase coupling provides the required local oscillator signals, achieving 
+                    low phase noise and wide tuning range. All inductors were EM-simulated and optimized for quality factor and resonance frequency.
+                </p>
+                <h2>Achieved Results</h2>
+                <p>
+                    The proposed receiver demonstrates strong performance compared to similar architectures, achieving 
+                    high conversion gain and competitive noise figure while maintaining low power operation.
+                </p>
+                <ul>
+                    <li><strong>QVCO Phase Noise:</strong> –122.9 dBc/Hz @ 1 MHz offset</li>
+                    <li><strong>QVCO Tuning Range:</strong> 2.12 – 2.75 GHz (±12%)</li>
+                    <li><strong>LNA-Mixer Gain:</strong> 28 dB</li>
+                    <li><strong>Noise Figure:</strong> 5.33 dB</li>
+                    <li><strong>IIP3:</strong> 0.312 dBm</li>
+                    <li><strong>Power:</strong> 9.23 mW</li>
+                    <li><strong>LNA-Mixer Realistic Implementation:</strong> Verified with EM-simulated inductors using Sonnet</li>
+                    <li><strong>Frontend Output:</strong> Clean quadrature IF outputs suitable for direct baseband processing</li>
+                </ul>
+                
+                <h2>Conclusion</h2>
+                <p>
+                    The 2.4GHz direct-conversion receiver successfully integrates the LNA, mixer, and QVCO into a compact, low-power design suitable for 
+                    applications such as Wi-Fi, Bluetooth, and other ISM-band communication systems. The merged architecture demonstrates the 
+                    feasibility of achieving excellent performance metrics within the power and voltage constraints of advanced CMOS processes.
+                </p>
+            </section>
+		    </div>
+		</div>
+		<script src="../src/scripts/sidebar.js" defer></script>
+	</body>
+</html>

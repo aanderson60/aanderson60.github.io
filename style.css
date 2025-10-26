@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
 html {
 	height: 100%;
@@ -353,10 +354,14 @@ p {
 	margin-right: 200px;
 }
 
+#equation {
+	font-family: "Inconsolata", monospace;
+	margin-left: 100px;
+}
+
 .project_body h2 {
 	font-weight: bold;
 	text-align: left;
-	padding-top: 15px;
 	margin-left: 50px;
 }
 
@@ -381,6 +386,18 @@ p {
 	text-decoration: underline;
 	margin-left: 50px;
 	color: rgb(40,40,40);
+}
+
+.project_body ul {
+	margin-left: 50px;
+}
+
+.proj_button a {
+	margin-left: 100px;
+}
+
+.proj_button img {
+	margin: 0;
 }
 
 #return_link {

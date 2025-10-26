@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel='shortcut icon' type='image/ico' href='../src/favicon.ico' />
+		<link rel="stylesheet" href="../style.css">
+		<title>Projects - Pipeline ADC</title>
+	</head>
+	<body>
+		<div class="fade-in">
+			<nav class="sidebar" aria-label="Primary">
+				<ul>
+					<li><img src="../src/favicon.ico" width=50px height=50px></li>
+					<li><a class="link_animation" href="../index">Home</a></li>
+					<li class="has-children" style="text-align: right;">
+						<button class="toggle link_animation" aria-expanded="true">Projects</button>
+						<ul class="submenu">
+							<li><a href="../projects/merged-lna-mixer">LNA-Mixer</a></li>
+							<li><a href="../projects/audio-amp">Audio Amp</a></li>
+							<li><a href="../projects/pipeline-adc">▸ Pipeline ADC</a></li>
+							<li><a href="../projects/620finalreport.pdf">CDR</a></li>
+							<li><a href="../https://hdl.handle.net/1969.1/200267">Rad-Hard TRX</a></li>
+							<li><a href="../projects/vlsireport.pdf">Op-Amp</a></li>
+							<li><a href="../projects/grouptesting">Group Testing</a></li>
+							<li><a href="../projects/mymirror">myMirror</a></li>
+							<li><a href="../projects/FM-Radio">FM Radio</a></li>
+						</ul>
+					</li>
+					<li><a class="link_animation" href="../resume">Resume</a></li>
+				</ul>
+			</nav>
+			<div class="project_body">
+				<section>
+					<h1>11-Bit 200MSps Pipeline Analog-to-Digital Converter</h1>
+
+					<p>
+						This ECEN 607 final project implements an 11-bit pipeline ADC targeting 200 MSps with an aggressive power
+						budget (under 10 mW). The design uses a 2.5-bit per stage pipeline with a front-end sample-and-hold amplifier (SHA),
+						redundant digital recombination, and per-stage residue amplification. The implementation focuses on amplifier and
+						switch linearity, low-noise sampling, and efficient comparator design.
+					</p>
+
+					<h2>Full Project Report</h2>
+					<div class="proj_button">
+						<a href="../projects/pipeline-adc.pdf"><img src="../src/page.png" alt="project_report" width="90px" height="90px"></a>
+					</div>
+
+					<h2>Theoretical Background</h2>
+					<p>
+						Pipeline ADCs combine moderate per-stage resolution with high throughput by distributing bit conversion across sequential
+						stages. Each stage resolves a small number of bits, subtracts an analog contribution (via a sub-DAC), amplifies the residue,
+						and passes it to the next stage. Redundancy (e.g., 2.5-bit stages) relaxes comparator offset and amplifier settling requirements,
+						trading a small area/power overhead for improved yield and reduced analog precision requirements.
+					</p>
+					<p>
+						Key analog building blocks include low-distortion bootstrapped switches for linear sampling, high-gain SHA amplifiers
+						to buffer the input, fast and low-power residue amplifiers for MDAC settling, and strong-ARM style dynamic comparators
+						with preamplification for stage decisions. Effective common-mode feedback (CMFB) and capacitor sizing based on thermal
+						noise are crucial to achieve robust performance at high sample rates.
+					</p>
+
+					<h2>Architecture and Design Highlights</h2>
+					<p>
+						The ADC uses a 2.5-bit/stage topology with a front-end flip-over SHA implemented using a recycling folded-cascode (RFC)
+						amplifier with gain-boosting. Five pipeline stages produce the 11-bit word after digital alignment and recombination logic.
+						Non-overlapping clocks minimize charge injection and switching errors.
+					</p>
+					<p>
+						Design choices and highlights:
+					</p>
+					<ul>
+						<li><strong>Per-stage resolution:</strong> 2.5-bit/stage with digital redundancy and recombination.</li>
+						<li><strong>SHA amplifier:</strong> Recycling folded-cascode with gain-boost for high DC gain and required GBW.</li>
+						<li><strong>Residue amplifier:</strong> RFC core used for power-efficient residue amplification; feedforward amplifier evaluated but not used due to power cost.</li>
+						<li><strong>Switching:</strong> Bootstrapped switches at the input to improve linearity across a wide voltage range.</li>
+						<li><strong>Comparators:</strong> Strong-ARM latch preceded by a preamplifier and followed by an RS latch to hold decisions.</li>
+						<li><strong>Digital:</strong> Verilog-A models for thermometer-to-binary and sub-DAC logic; ideal 11-bit DAC used for testing SNDR/ENOB.</li>
+						<li><strong>Unit capacitor:</strong> 200 fF chosen based on thermal noise analysis.</li>
+					</ul>
+
+					<h2>Simulation & Measured Results</h2>
+					<p>
+						System modeling in Simulink guided amplifier GBW and noise requirements. Cadence-level simulations validated the
+						analog blocks and full-pipeline testbenches. Key measured/simulated metrics are summarized below.
+					</p>
+					<ul>
+						<li><strong>Sample rate:</strong> 200 MSps</li>
+						<li><strong>SNDR:</strong> 45.4 dB</li>
+						<li><strong>ENOB:</strong> 7.24 bits</li>
+						<li><strong>SFDR:</strong> 53.4 dB</li>
+						<li><strong>Total power:</strong> 9.78 mW (SHA 2 mW, residue amps 5.32 mW, switches/comparators 3.46 mW)</li>
+						<li><strong>Figure-of-Merit (FoM):</strong> 145.5 dB</li>
+						<li><strong>Unit cap:</strong> 200 fF</li>
+					</ul>
+
+					<h2>Conclusion</h2>
+					<p>
+						The implemented pipeline ADC demonstrates a power-efficient architecture for medium-speed, moderate-resolution conversion.
+						Although the ENOB falls short of the 11-bit goal (7.24 bits measured), the overall power consumption is near target and the
+						FoM is competitive for an uncalibrated design. The report recommends the addition of post-calibration (e.g., adaptive LMS-based
+						schemes) to recover multiple bits of resolution and further algorithmic compensation to correct amplifier nonidealities.
+					</p>
+					<p>
+						Future work includes implementing digital calibration, optimizing amplifier topologies for lower distortion at the same power,
+						and transitioning from Verilog-A models to synthesized digital back-end logic at minimum sizing to validate overall power and timing.
+					</p>
+				</section>
+			</div>
+		</div>
+		<script src="../src/scripts/sidebar.js" defer></script>
+	</body>
+</html>
